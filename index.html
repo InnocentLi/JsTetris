@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>俄罗斯方块</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+<style lang="">
+
+</style>
+
 <body>
-   <h1>echo test</h1> 
-   <input type="text" id="sendTxt">
-   <button id="sendBtn">发送</button>
-   <div id="recv"></div>
-   <script>
-       var ws = new WebSocket("ws://echo.websocket.org/");
-       
-       ws.onopen = function () {
-       console.log("websocket open");
-       document.getElementById("recv").innerHTML = "Connected"; 
-       }
-       ws.onclose = function () {
-       console.log("websocket open");
-       }
-       ws.onmessage = function (e) {
-       console.log(e.data);
-       document.getElementById("recv").innerHTML = e.data;
-       }
-       document.getElementById("sendBtn").onclick = function (){
-           var txt = document.getElementById("sendTxt").value;
-           ws.send(txt);
-       }
-    
-   </script>
+    <div class="game" id="game"></div>
+    <div class="next" id="next"></div>
+    <div class="info">
+        <div>
+            已用时:<span id="time">0</span>s
+        </div>
+        <div>
+            已得分: <span id="score">0</span>分
+        </div>
+    </div>
+<script src="js/script.js"></script>
+<script src="js/squareFactory.js"></script>
+<script src="js/square.js"></script>
+<script src="js/game.js"></script>
+<script src="js/remote.js"></script>
+<script src="js/local.js"></script>
 </body>
+
 </html>
